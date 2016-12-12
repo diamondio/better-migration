@@ -41,9 +41,7 @@ exports.version = function (v, script) {
 exports.start = function (cb) {
   exports.lock(function (err, release) {
     if (err) {
-      return release(function () {
-        return cb({ message: 'failed_to_obtain_lock' });
-      });
+      return cb({ message: 'failed_to_obtain_lock' });
     }
     exports.get(function (err, version) {
       if (err) {
